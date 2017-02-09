@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="cowsayApp">
+  <head>
+    <title>Cowsay Fun!</title>
+  </head>
+  <body>
+    <main ng-controller="CowsayController as cowsayCtrl">
+
+      <section>
+        <h1>{{cowsayCtrl.title}}</h1>
+        <form ng-submit="cowsayCtrl.save()">
+          <label>What would you like me to say?</label>
+          <input type="text" ng-model="cowsayCtrl.text">
+          <label>Who would you like me to be?</label>
+          <select ng-model="cowsayCtrl.cowfile">
+            <option ng-repeat="option in cowsayCtrl.cowfiles">{{option}}</option>
+          </select>
+          <button type="submit">SAVE ME</button>
+        </form>
+      </section>
+
+      <section>
+        <h1>Preview of Current Selection</h1>
+        <pre>
+          {{cowsayCtrl.updateCow(cowsayCtrl.text, cowsayCtrl.cowfile)}}
+        </pre>
+      </section>
+
+      <section ng-show="cowsayCtrl.lastSave">
+        <h1>Last Saved Cowfile</h1>
+        <pre>
+          {{cowsayCtrl.lastSave}}
+        </pre>
+        <button type="button" ng-click="cowsayCtrl.undo()">Undo</button>
+      </section>
+    </main>
+
+  </body>
+</html>
