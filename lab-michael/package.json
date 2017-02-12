@@ -10,5 +10,28 @@
   },
   "repository": "https://github.com/silvershotm1/lab-23-testing-controllers",
   "author": "Michael Bishop",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "angular-mocks": "^1.6.2",
+    "eslint": "^3.15.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^2.0.2",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "cowsay-browser": "^1.1.8",
+    "css-loader": "^0.26.1",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1"
+  }
 }
