@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start --single-run",
+    "test-watch": "karma start --auto-watch --browsers PhantomJS"
   },
   "repository": "https://github.com/silvershotm1/lab-23-testing-controllers",
   "author": "Michael Bishop",
