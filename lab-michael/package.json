@@ -1,0 +1,14 @@
+{
+  "name": "Lab23_ANG_Controllers",
+  "version": "1.0.0",
+  "description": "Testing Lab23 ANG Controllers",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/silvershotm1/lab-23-testing-controllers",
+  "author": "Michael Bishop",
+  "license": "MIT"
+}
