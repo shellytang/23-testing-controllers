@@ -22,6 +22,11 @@ module.exports = {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint',
+      },
     ],
   },
 };
