@@ -1,14 +1,13 @@
 {
-  "name": "Lab23_ANG_Controllers",
+  "name": "Lab-23-Angular-Controllers",
   "version": "1.0.0",
-  "description": "Testing Lab23 ANG Controllers",
-  "main": "karma.conf.js",
+  "description": "testing angular controllers",
   "main": "karma.conf.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot",
     "test-watch": "./node_modules/karma/bin/karma start",
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "karma start --single-run"
   },
   "keywords": [],
   "author": "",

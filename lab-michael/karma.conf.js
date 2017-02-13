@@ -12,15 +12,15 @@ module.exports = function(config) {
     exclude: [
     ],
     preprocessors: {
-      'test/**/*-test.js': ['webpack'],
+      'test/**/*-test.js': ['webpack']
     },
-    reporters: ['progress'],
+    reporters: ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['PhantomJS'],
-    singleRun: true,
+    singleRun: false,
     concurrency: Infinity
   });
 };
