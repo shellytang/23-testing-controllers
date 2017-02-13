@@ -12,6 +12,8 @@ module.exports = function(config) {
     exclude: [
     ],
     preprocessors: {
+      // '**/*.js': ['eslint'],
+      '!(node_modules/)/**/*.js': ['eslint'],
       'test/**/*-test.js': ['webpack']
     },
     reporters: ['mocha'],
