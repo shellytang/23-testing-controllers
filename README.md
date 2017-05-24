@@ -1,4 +1,4 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 22 - Testing Angular Controllers
+![cf](https://i.imgur.com/7v5ASc8.png) Lab 23 - Testing Angular Controllers
 ======
 
 ## To Submit this Assignment
