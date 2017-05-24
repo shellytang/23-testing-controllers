@@ -29,15 +29,15 @@
 
   * Use the following segments of code (this is all you need) to update your webpack.config.js so that you have the ability to see the source-maps for your resources in the Chrome dev tools.
 
-  ======
+  ===========
   ```javascript
     devtool: 'source-map'
   ```
-  ======
+  ===========
   ```javascript
     new ExtractTextPlugin({filename: 'bundle.css'})
   ```
-  ======
+  ===========
   ```javascript
     use: ExtractTextPlugin.extract(
       {
