@@ -27,6 +27,33 @@
   * Write a test that checks for default properties set by your controller(s)
   * Write a series of tests that check your controller methods for expected functionality
 
+  * Use the following segments of code (this is all you need) to update your webpack.config.js so that you have the ability to see the source-maps for your resources in the Chrome dev tools.
+  ======
+  ```javascript
+    devtool: 'source-map'
+  ```
+  ======
+  ```javascript
+    new ExtractTextPlugin({filename: 'bundle.css'})
+  ```
+  ======
+  ```javascript
+    use: ExtractTextPlugin.extract(
+      {
+        use: [
+          { loader: 'css-loader',  options: { sourceMap: true } },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [`${__dirname}/app/scss/`]
+            }
+          },
+        ]
+      }
+    )
+  ```
+
 ## Bonus
   * **2pts:** Create a series of `scss` partials for your `_base` styles, `_reset` stylesheet, and `_main` styles
     * these should be imported (`@import`) into a `core.scss` file that will be compiled into a stylesheet for your application
