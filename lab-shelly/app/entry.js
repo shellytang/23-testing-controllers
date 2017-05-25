@@ -19,7 +19,7 @@ function CowsayController($log) {
 
     cowsay.list((err, cows) => {
       this.cowfiles = cows;
-      this.current = this.cowfiles[0];
+      this.current = this.cowfiles[35];
     });
 
     this.update = function(input) {

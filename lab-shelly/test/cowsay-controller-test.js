@@ -27,14 +27,13 @@ describe('testing the CowsayController', function() {
       cowsay.list((err, cows) => {
         expect(this.cowsayCtrl.cowfiles).toEqual(cows);
         expect(this.cowsayCtrl.cowfiles).toEqual(jasmine.any(Array));
-        expect(this.cowsayCtrl.current).toEqual(cows[0]); //why isn't this squirrel??
       });
     });
 
-    it('the default cow in the array will be a squirrel', () => {
-        // console.log('cows', cows);
-      let expected = cowsay.say({text: 'moooo', f: 'squirrel' });
-      expect(this.cowsayCtrl.current).toEqual(expected); //why isn't this squirrel??
+    it('the default cow in the select dropdown will be a squirrel', () => {
+      cowsay.list((err, cows) => {
+        expect(this.cowsayCtrl.current).toEqual(cows[35]);
+      });
     });
 
     it('the cow should have default text "moooo"', () => {
@@ -46,57 +45,61 @@ describe('testing the CowsayController', function() {
       expect(this.cowsayCtrl.history).toBe.empty;
     });
 
-    it('the history array should not be empty with text entry and speak button clicked', () => {
-      expect();
+    it('should return a elephant when elephant on the list is selected', () => {
+      this.cowsayCtrl.current = this.cowsayCtrl.cowfiles[13];
+      let expected = cowsay.say({text: 'moooo', f: this.cowsayCtrl.current});
+      let result = this.cowsayCtrl.update();
+      expect(result).toEqual(expected);
     });
 
-  //testing to see if selected dragon will show dragon?
-  }); //end of properties testing
+    it('the history array should not be empty after submit button is clicked', () => {
+      this.cowsayCtrl.speak('hollaaa');
+      expect(this.cowsayCtrl.history).not.toBe.empty;
+    });
+
+  });
 
   describe('testing the functionality', () => {
 
     describe('update method', () => {
-      it('should return a cow that says hellooo', () => {
-        let expected = cowsay.say({text: 'mooo', f: this.cowsayCtrl.current });
-        let result = this.cowsayCtrl.update('mooo');
+      it('should return a cow that says hihi', () => {
+        let expected = this.cowsayCtrl.update('hihi');
+        let result = cowsay.say({text: 'hihi', f: this.cowsayCtrl.current });
         expect(result).toEqual(expected);
       });
-
     });
 
     describe('speak method', () => {
-      // this.speak = function(input) {
-      //   $log.debug('#speak');
-      //   this.spoken = this.update(input);
-      //   this.history.push(this.spoken);
-      // };
-      // it('should return a cow that says hellooo', () => {
-      //   let expected = cowsay.say({ text: 'helloo', f: this.cowsayCtrl.current });
-      //   this.cowsayCtrl.speak('hello');
-      //   expect(this.cowsayCtrl.history[0]).toEqual(expected);
-      // });
-
-      it('should return push the spoken item into the history array', () => {
-        expect();
+      it('should populate a second pre tag with the current pre tag state', () => {
+        cowsay.say({ text: 'hi', f: this.cowsayCtrl.current });
+        let updated = this.cowsayCtrl.update();
+        this.cowsayCtrl.speak();
+        expect(updated).toEqual(this.cowsayCtrl.spoken);
       });
 
+      it('should push the spoken item into the history array', () => {
+        cowsay.say({ text: 'hi', f: this.cowsayCtrl.current });
+        this.cowsayCtrl.speak();
+        expect(this.cowsayCtrl.history[0]).toEqual(this.cowsayCtrl.spoken);
+        expect(this.cowsayCtrl.history.length).toEqual(1);
+      });
     });
 
     describe('undo method', () => {
 
       it('should have an empty history array upon init', () => {
-        expect();
+        expect(this.cowsayCtrl.history).toBe.empty;
       });
-
-      it('should show the current cow that says mooo', () => {
-        expect();
-      });
-
-      it('should show the previous cow upon clicking undo', () => {
-        expect();
+      it('should show the previous cow with clicking undo', () => {
+        this.cowsayCtrl.speak('hi');
+        this.cowsayCtrl.speak('hi again');
+        this.cowsayCtrl.speak('hi again again');
+        let previous = this.cowsayCtrl.history[1];
+        this.cowsayCtrl.undo();
+        expect(previous).toEqual(this.cowsayCtrl.spoken);
+        expect(this.cowsayCtrl.history.length).toEqual(1);
       });
     });
-
   });
 
 });
