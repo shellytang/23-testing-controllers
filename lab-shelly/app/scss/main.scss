@@ -1,0 +1,132 @@
+// :::: $vars ::::
+
+$brand-primary: #D7DCDD;
+$brand-secondary: #C4000D;
+$btn-primary: $brand-secondary*1;
+$btn-hover: $brand-primary/2;
+$btn-border-radius: 7px;
+$black: #000;
+$white: #fff;
+$box-std: 50%;
+$gutter-std: 5%;
+$gutter-sm: $gutter-std/2;
+$pre-primary: #1D3557;
+
+// ::: mixins :::
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// :::: global styles ::::
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0 0 100px;
+  font-family: helvetica;
+  font-size: 2vw;
+  background: $brand-primary;
+}
+
+h2 {
+  padding: $gutter-std;
+  color: $brand-primary/3;
+  font-size: 3vw;
+  text-align: center;
+}
+
+button {
+  width: $box-std/4;
+  padding: 1% 0;
+  background: $btn-primary;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 350ms all;
+  margin-bottom: 20px;
+  @include border-radius($btn-border-radius);
+
+  &:hover {
+    background: $btn-hover;
+  }
+}
+
+header {
+  width: 100%;
+  background-color: $brand-primary/3;
+  height: 4em;
+
+  nav {
+      text-align: right;
+      padding: .8em;
+
+    li {
+      display: inline-block;
+      padding: 1em;
+
+      a {
+        font-size: .8em;
+        color: $brand-secondary;
+        text-decoration: none;
+
+        &:hover {
+          color: $brand-secondary*2;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  height: 4em;
+  position: absolute;
+  background: $brand-primary/3;
+  margin-top: 30px;
+}
+
+// :::: app styles ::::
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+form {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: $gutter-std;
+  text-align: center;
+}
+
+select {
+  height: 2.5em;
+  width: $box-std/2.5;
+  margin-right: 1.2em;
+}
+
+input[type="text"] {
+  width: $box-std/2;
+  padding: 1%;
+  border: none;
+  @include border-radius(3px);
+}
+
+pre {
+  color: $pre-primary;
+  font-family: monospace;
+  width: $box-std*2;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-align: center;
+}
