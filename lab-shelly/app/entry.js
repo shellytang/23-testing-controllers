@@ -31,12 +31,21 @@ function CowsayController($log) {
       $log.debug('#speak');
       this.spoken = this.update(input);
       this.history.push(this.spoken);
+      console.log('the history', this.history);
     };
+
 
     this.undo = function() {
       $log.debug('#undo');
+
       this.history.pop();
+
+      console.log('history inside UNDO', this.history);
+
       this.spoken = this.history.pop() || '';
+
+      console.log('history 2nd', this.history);
+
     };
   };
 }
